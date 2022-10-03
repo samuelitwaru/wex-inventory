@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <loading-modal />
     <q-header elevated>
       <q-toolbar>
         <q-btn
@@ -12,10 +13,10 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+          Wex Inventory
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <div></div>
       </q-toolbar>
     </q-header>
 
@@ -24,12 +25,14 @@
       show-if-above
       bordered
     >
+    <q-img
+          src="~/assets/string.png"
+          :ratio="1"
+          style="width: 120px; hieght: 120px"
+          spinner-color="primary"
+          spinner-size="82px"
+        />
       <q-list>
-        <q-item-label
-          header
-        >
-          Essential Links
-        </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
@@ -48,49 +51,23 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import EssentialLink from 'components/EssentialLink.vue';
+import LoadingModal from 'src/components/index/LoadingModal.vue';
 
 const linksList = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev',
+    title: 'Home',
+    icon: 'home',
+    link: '/',
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework',
+    title: 'Inventory',
+    icon: 'inventory',
+    link: 'inventory',
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev',
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev',
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev',
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev',
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev',
+    title: 'Categories',
+    icon: 'category',
+    link: 'categories',
   },
 ];
 
@@ -99,6 +76,7 @@ export default defineComponent({
 
   components: {
     EssentialLink,
+    LoadingModal,
   },
 
   setup() {
