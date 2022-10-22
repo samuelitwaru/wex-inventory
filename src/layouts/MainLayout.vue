@@ -26,7 +26,7 @@
       bordered
     >
     <q-img
-          src="~/assets/string.png"
+          src="~/assets/logo.png"
           :ratio="1"
           style="width: 120px; hieght: 120px"
           spinner-color="primary"
