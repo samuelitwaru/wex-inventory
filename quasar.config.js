@@ -54,7 +54,7 @@ module.exports = configure((ctx) => ({
     vueRouterMode: 'history', // available values: 'hash', 'history'
 
     // transpile: false,
-    // publicPath: '/',
+    publicPath: 'dist/spa',
 
     // Add dependencies for transpiling with Babel (Array of string/regex)
     // (from node_modules, which are by default not transpiled).
@@ -64,7 +64,7 @@ module.exports = configure((ctx) => ({
     // rtl: true, // https://quasar.dev/options/rtl-support
     // preloadChunks: true,
     // showProgress: false,
-    // gzip: true,
+    // gzip: false,
     // analyze: true,
 
     // Options below are automatically set depending on the env, set them if you want to override
@@ -74,7 +74,8 @@ module.exports = configure((ctx) => ({
     // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
 
     chainWebpack(chain) {
-      chain.plugin('eslint-webpack-plugin')
+      chain
+        .plugin('eslint-webpack-plugin')
         .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }]);
     },
 
